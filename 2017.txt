@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <string.h>
+
+int hammingDist(char* str1, char* str2){ 
+    int i = 0, count = 0; 
+    for(int i=0;str1[i] != '\0';i++){ 
+        if (str1[i] != str2[i]) count++; 
+    } 
+    return count; 
+} 
+int main() {
+ 
+char x[100001],y[100001];
+int k,l,i,pos;
+scanf("%s\n%d\n",x,&k);
+int min=100001,dist;
+l=k,i=1;
+while(k--){
+    scanf("%s\n",y);
+    dist=hammingDist(x,y);
+    if(dist<min) min=dist,pos=i;
+    i++;
+}
+if(min>l) printf("-1\n");
+else printf("%d\n%d\n",pos,min);
+ 
+    return 0;
+}
