@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include<string.h>
+ 
+int main() {
+ 
+char nome[50],data1[11],data2[11];
+scanf("%[^\n]\n",nome);
+scanf("%s",data1);
+scanf("%s",data2);
+
+char *dia1=strtok(data1,"/");
+char *mes1=strtok(NULL,"/");
+char* ano1=strtok(NULL,"/");
+int soma=0,soma1=0,soma2=0;
+for(int i=0,c=10;dia1[i]!='\0';i++,c/=10){
+  soma+=(dia1[i]-'0')*c;
+}
+for(int i=0,c=10;mes1[i]!='\0';i++,c/=10){
+  soma1+=(mes1[i]-'0')*c;
+}
+for(int i=0,c=1000;ano1[i]!='\0';i++,c/=10){
+  soma2+=(ano1[i]-'0')*c;
+}
+char *dia=strtok(data2,"/");
+char *mes=strtok(NULL,"/");
+char* ano=strtok(NULL,"/");
+int soma3=0,soma4=0,soma5=0;
+
+for(int i=0,c=10;dia[i]!='\0';i++,c/=10){
+  soma3+=(dia[i]-'0')*c;
+}
+for(int i=0,c=10;mes[i]!='\0';i++,c/=10){
+  soma4+=(mes[i]-'0')*c;
+}
+for(int i=0,c=1000;ano[i]!='\0';i++,c/=10){
+  soma5+=(ano[i]-'0')*c;
+}
+
+if(soma==soma3 && soma1==soma4){
+  printf("Feliz aniversario!\nVoce tem %d anos %s.\n",soma2-soma5,nome);
+}else{
+  if(soma1==soma4){
+    if(soma<soma3) printf("Voce tem %d anos %s.\n",soma2-soma5-1,nome);
+    else if(soma>soma3) printf("Voce tem %d anos %s.\n",soma2-soma5,nome);
+  }else if(soma1!=soma4){
+    if(soma1<soma4) printf("Voce tem %d anos %s.\n",soma2-soma5-1,nome);
+    else printf("Voce tem %d anos %s.\n",soma2-soma5,nome);
+  }
+}
+    return 0;
+}
