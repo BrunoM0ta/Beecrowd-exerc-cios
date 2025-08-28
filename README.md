@@ -1,0 +1,1 @@
+Exercícios de programação resolvidos na linguagem C, na plataforma de submissão de código Beecrowd. Os exercícios resolvidos podem ter aplicações práticas em várias áreas, nomeadamente, manipulação de strings, grafos, árvores binárias, listas e simulação.
